@@ -49,7 +49,7 @@ body {
     border-radius: 10px;
     border: 1px solid #ddd;
     background: #f9fafc;
-    padding: 20px;
+    padding: 20px 10px;
     align-items: flex-end;
 }
 
@@ -57,25 +57,35 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 8px;
 }
 
 .search_wrap_button {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.search_wrap_button button {
     background: #118dff;
     color: #fff;
     height: 32px;
     border-radius: 4px;
     padding: 0 15px;
     border: none;
-    flex-shrink: 0;
+    margin-bottom: 8px;
 }
 
-.search_wrap_col + .search_wrap_button {
-    margin-left: 10px;
+.search_wrap_button button:last-of-type {
+    margin-bottom: 0;
 }
 
 .search_wrap_row {
     display: flex;
+    margin-bottom: 8px;
+}
+
+.search_wrap_row:last-of-type {
+    margin-bottom: 0;
 }
 
 .search_wrap_col {
@@ -83,11 +93,7 @@ body {
     align-items: center;
     gap: 10px;
     overflow: hidden;
-    padding-right: 20px;
-}
-
-.search_wrap_col:last-of-type {
-    padding-right: 0;
+    padding: 0 10px;
 }
 
 .search_wrap_col .label_cell {
