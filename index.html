@@ -528,7 +528,7 @@
     <button type="button" class="search_wrap_button">검색</button>
 </div>
 
-<button type="button" id="changeLang">라벨 한/영 전환</button>
+    <button type="button" id="changeLang">라벨 한/영 전환</button>
 
     <script src="./js/codeviewer.js"></script>
 
@@ -540,9 +540,13 @@
 
         changeLang.addEventListener('click', () => {
             document.querySelectorAll('.label_cell label').forEach(label => {
-                if(lang === 'kor') label.textContent = label.textContent.replaceAll('라벨링', 'Labeling');
-                else if(lang === 'eng') label.textContent = label.textContent.replaceAll('Labeling', '라벨링');
+                if (lang === 'kor') label.textContent = label.textContent.replaceAll('라벨링', 'Labeling');
+                else if (lang === 'eng') label.textContent = label.textContent.replaceAll('Labeling', '라벨링');
             });
+
+            document.querySelectorAll('.search_wrap_button')
+                .forEach(button => button.textContent = button.textContent === '검색' ? 'Search' : '검색');
+
             lang === 'kor' ? lang = 'eng' : lang = 'kor';
         });
 

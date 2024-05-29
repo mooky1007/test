@@ -36,6 +36,8 @@ body {
     gap: 30px;
     width: 100%;
     padding: 50px;
+    max-width: 1024px;
+    margin: 0 auto;
 }
 
 .search_wrap {
