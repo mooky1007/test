@@ -1,25 +1,110 @@
-pre code.hljs {
+.hljs {
+    color: #acb0b7 !important;
+    background: #282b2e !important;
+}
+
+.hljs * {font-size: 12px !important;}
+
+.hljs-tag,
+.hljs-attr {
+    color: #acb0b7 !important;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-symbol,
+.hljs-bullet {
+    color: #6897bb !important;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-deletion {
+    color: #cc7832 !important;
+}
+
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link {
+    color: #629755 !important;
+}
+
+.hljs-comment,
+.hljs-quote {
+    color: #808080 !important;
+}
+
+.hljs-meta {
+    color: #bbb529 !important;
+}
+
+.hljs-string,
+.hljs-attribute,
+.hljs-addition {
+    color: #118dff !important;
+}
+
+.hljs-section,
+.hljs-title,
+.hljs-type {
+    color: #ffc66d !important;
+}
+
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class {
+    color: #407cb3 !important;
+    font-weight: 500 !important;
+}
+
+.hljs-emphasis {
+    font-style: italic !important;
+}
+
+.hljs-strong {
+    font-weight: bold !important;
+}
+
+pre {
     width: 100%;
     min-width: 845px;
     max-width: 1000px;
-    line-height: 1.2;
-    border: 1px solid #ddd;
+    background: #282b2e !important;
     border-radius: 10px;
-    background: #f9fafc;
-    height: 100%;
-    max-height: 240px;
-    overflow: auto;
-    margin-bottom: 30px;
     position: relative;
     top: -20px;
+    margin-bottom: 30px;
+    padding: 5px;
+    height: 100%;
+    overflow: hidden;
+}
+
+pre code.hljs {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-height: 250px;
+    line-height: 1.2;
+    overflow: auto;
+    background: transparent;
+}
+
+pre code.hljs {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-height: 250px;
+    line-height: 1.2;
+    overflow: auto;
+    border-radius: 10px;
 }
 
 pre code.hljs::-webkit-scrollbar {
-    width: 4px;;
+    width: 4px;
 }
 
 pre code.hljs::-webkit-scrollbar-thumb {
     width: 2px;
     border-radius: 4px;
-    background-color: #c0c2c6;
+    background-color: #7184aa;
 }
