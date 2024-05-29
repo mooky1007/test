@@ -10,7 +10,7 @@ class LabelResizer {
     collectData() {
         const rows = [...this.el.querySelectorAll('.search_wrap_row')];
 
-        return rows.reduce((acc, row, rowIdx, rowOrigin) => {
+        const result = rows.reduce((acc, row, rowIdx, rowOrigin) => {
             const cols = [...row.querySelectorAll('.search_wrap_col')];
 
             cols.forEach((col, idx) => {
@@ -24,6 +24,9 @@ class LabelResizer {
             });
             return acc;
         }, {});
+
+        document.querySelectorAll('[col-idx]').forEach((el) => el.removeAttribute('col-idx'));
+        return result;
     }
 
     observe() {
