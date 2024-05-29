@@ -9,14 +9,17 @@ pre code.hljs {
     height: 100%;
     max-height: 240px;
     overflow: auto;
+    margin-bottom: 30px;
+    position: relative;
+    top: -20px;
 }
 
 pre code.hljs::-webkit-scrollbar {
-    width: 4px;
+    width: 4px;;
 }
 
 pre code.hljs::-webkit-scrollbar-thumb {
     width: 2px;
     border-radius: 4px;
-    background-color: #222;
+    background-color: #c0c2c6;
 }
