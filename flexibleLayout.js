@@ -1,17 +1,12 @@
 class FlexibleLayout {
     constructor(el) {
         this.el = el;
-        this.singleRow = false;
-        this.collectData();
         this.observe();
-        this.render();
-
         window.addEventListener('resize', () => this.render());
     }
 
     collectData() {
         const rows = [...this.el.querySelectorAll('.search_wrap_row')];
-        if (rows.length === 1) this.singleRow = true;
 
         return rows.reduce((acc, row, rowIdx, rowOrigin) => {
             const cols = [...row.querySelectorAll('.search_wrap_col')];
@@ -30,17 +25,17 @@ class FlexibleLayout {
     }
 
     observe() {
-        if(this.singleRow) return;
         const observer = new MutationObserver(() => this.render());
         observer.observe(this.el, {
             childList: true,
             subtree: true,
             characterDataOldValue: true,
         });
+
+        this.render()
     }
 
     render() {
-        if(this.singleRow) return;
         Object.values(this.collectData()).forEach((labels) => {
             labels.forEach((labelObj) => (labelObj.labelEl.style.width = 'auto'));
             const maxWidth = Math.max(...labels.map((labelObj) => labelObj.labelEl.offsetWidth + 5));

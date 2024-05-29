@@ -4,9 +4,14 @@
     font-size: 13px;
     box-sizing: border-box;
     line-height: 1;
-    color: #222;
     font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', 나눔고딕,
         'Nanum Gothic', 'Noto Sans KR', 'Noto Sans CJK KR', arial, 돋움, Dotum, Tahoma, Geneva, sans-serif;
+}
+
+h2 {
+    position: relative;
+    top: 20px;
+    font-size: 16px;
 }
 
 html {
@@ -77,6 +82,8 @@ body {
     text-overflow: ellipsis;
     overflow: hidden;
     font-weight: 700;
+    line-height: 32px;
+    color: #222;
 }
 
 .search_wrap_col .content_cell {
