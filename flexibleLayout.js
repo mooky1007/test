@@ -17,10 +17,10 @@ class FlexibleLayout {
             const cols = [...row.querySelectorAll('.search_wrap_col')];
 
             cols.forEach((col, idx) => {
-                const colspan = +col.getAttribute('colspan') || 1;
+                const colspan = col.className.match(/col-(\d+)/)[1];
                 const labelEl = col.querySelector('label');
-                const colIdx = idx === 0 ? 0 : +cols[idx - 1].getAttribute('data-col-idx') + (+cols[idx - 1].getAttribute('colspan') || 1);
-                col.setAttribute('data-col-idx', colIdx);
+                const colIdx = idx === 0 ? 0 : +cols[idx - 1].getAttribute('col-idx') + (+cols[idx - 1].className.match(/col-(\d+)/)[1] || 1);
+                col.setAttribute('col-idx', colIdx);
 
                 if (!acc[colIdx]) acc[colIdx] = [];
                 acc[colIdx].push({ labelEl, colspan });
