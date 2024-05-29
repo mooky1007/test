@@ -98,6 +98,7 @@ body {
 
 .search_wrap_col .label_cell {
     height: 100%;
+    flex-shrink: 0;
     white-space: nowrap;
     display: inline-block;
     text-overflow: ellipsis;
