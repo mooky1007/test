@@ -7,36 +7,16 @@
     <title>Flexible-search-layout</title>
     <link rel="stylesheet" as="style" crossorigin
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <script src="./flexibleLayout.js"></script>
-    <link rel="stylesheet" href="./col.css">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/labelResizer.js"></script>
+
+    <!-- 부트스트랩 임시 -->
+    <link rel="stylesheet" href="./css/_col.css">
 
     <!-- 코드뷰어 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <style>
-        pre code.hljs {
-            width: 100%;
-            min-width: 845px;
-            max-width: 1000px;
-            line-height: 1.2;
-            border: 1px solid #ddd;
-            background: #f9fafc;
-            height: 100%;
-            max-height: 240px;
-            overflow: auto;
-        }
-
-        pre code.hljs::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        pre code.hljs::-webkit-scrollbar-thumb {
-            width: 2px;
-            border-radius: 4px;
-            background-color: #222;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/_codeviewer.css">
 </head>
 
 <body>
@@ -114,7 +94,7 @@
                     <input type="text" placeholder="Placeholder">
                 </div>
             </div>
-            
+
             <div class="search_wrap_col col-3">
                 <label>라벨링</label>
                 <div class="content_cell">
@@ -344,7 +324,7 @@
                     <input type="checkbox" id="checkbox"><label for="checkbox">Checkbox</label>
                 </div>
             </div>
-            
+
             <div class="search_wrap_col col-3">
                 <label>라벨링</label>
                 <div class="content_cell">
@@ -442,7 +422,7 @@
                     <input type="text" placeholder="Placeholder">
                 </div>
             </div>
-            
+
             <div class="search_wrap_col col-3">
                 <label>라벨링</label>
                 <div class="content_cell">
@@ -453,28 +433,13 @@
     </div>
     <button class="search_wrap_button">검색</button>
 </div>
-
-    <script>
-        // 코드뷰어 실행용
-        document.querySelectorAll('.search_wrap')
-            .forEach(searchWrap => {
-                const pre = document.createElement('pre');
-                const code = document.createElement('code');
-                code.classList.add('hljs');
-                code.classList.add('xml');
-                code.textContent = searchWrap.outerHTML;
-
-                pre.appendChild(code);
-                searchWrap.parentNode.insertBefore(pre, searchWrap.nextSibling);
-            });
-
-        hljs.highlightAll();
-    </script>
+    <script src="./js/_codeviewer.js"></script>
 
     <script>
         document.querySelectorAll('.search_wrap')
-            .forEach(layout => new FlexibleLayout(layout));
+            .forEach(layout => new LabelResizer(layout));
     </script>
+
 </body>
 
 </html>

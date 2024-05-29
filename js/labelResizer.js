@@ -1,4 +1,4 @@
-class FlexibleLayout {
+class LabelResizer {
     constructor(el) {
         this.el = el;
         this.observe();

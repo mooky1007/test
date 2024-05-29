@@ -1,0 +1,22 @@
+pre code.hljs {
+    width: 100%;
+    min-width: 845px;
+    max-width: 1000px;
+    line-height: 1.2;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #f9fafc;
+    height: 100%;
+    max-height: 240px;
+    overflow: auto;
+}
+
+pre code.hljs::-webkit-scrollbar {
+    width: 4px;
+}
+
+pre code.hljs::-webkit-scrollbar-thumb {
+    width: 2px;
+    border-radius: 4px;
+    background-color: #222;
+}
