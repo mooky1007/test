@@ -88,7 +88,8 @@ body {
     padding-right: 0;
 }
 
-.search_wrap_col > label {
+.search_wrap_col .label_cell {
+    height: 100%;
     white-space: nowrap;
     display: inline-block;
     text-overflow: ellipsis;
@@ -138,4 +139,17 @@ label[for='radio'] {
     align-items: center;
     gap: 5px;
     color: #3f4247;
+}
+
+#changeLang {
+    border: none;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background: #118dff;
+    color: #fff;
+    border-radius: 4px;
+    padding: 0 10px;
+    height: 32px;
+    cursor: pointer;
 }
