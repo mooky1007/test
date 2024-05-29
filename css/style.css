@@ -63,6 +63,7 @@ body {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
+    margin-right: 10px;
 }
 
 .search_wrap_button button {
@@ -82,6 +83,10 @@ body {
 .search_wrap_row {
     display: flex;
     margin-bottom: 8px;
+}
+
+.search_wrap_row .search_wrap_button {
+    margin-right: 0;
 }
 
 .search_wrap_row:last-of-type {
@@ -142,8 +147,7 @@ body {
     font-weight: 300;
 }
 
-label[for='checkbox'],
-label[for='radio'] {
+.input_group {
     display: flex;
     align-items: center;
     gap: 5px;
