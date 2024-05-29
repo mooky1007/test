@@ -76,7 +76,7 @@
         .col label {
             display: inline-block;
             text-overflow: ellipsis;
-            overflow: auto;
+            overflow: hidden;
         }
         
         .col .content_cell {
@@ -180,7 +180,10 @@
             </div>
             <div class="col" colspan="2">
                 <label>Label</label>
-                <div class="content_cell"><input type="text"></div>
+                <div class="content_cell">
+                    <input type="text">
+                    <input type="text">
+                </div>
             </div>
             <div class="col">
                 <label>Label</label>
@@ -278,9 +281,13 @@
             render() {
                 Object.values(this.collectData()).forEach(labels => {
                     labels.forEach(labelObj => labelObj.labelEl.style.width = 'auto');
-                    const maxWidth = Math.max(...labels.map(labelObj => labelObj.labelEl.offsetWidth));
-
-                    labels.forEach(labelObj => labelObj.labelEl.style.width = `${maxWidth}px`);
+                    const maxWidth = Math.max(...labels.map(labelObj => labelObj.labelEl.offsetWidth + 5));
+                    const minWidth = Math.min(...labels.map(labelObj => labelObj.labelEl.closest('.col').offsetWidth/2));
+                    
+                    labels.forEach(labelObj => {
+                        labelObj.labelEl.style.width = `${maxWidth}px`
+                        labelObj.labelEl.style.maxWidth = `${minWidth}px`
+                    });
                 });
             }
         }
