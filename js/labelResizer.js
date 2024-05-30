@@ -29,7 +29,7 @@ class LabelResizer {
             return acc;
         }, {});
 
-        rows.querySelectorAll('[col-idx]').forEach((el) => el.removeAttribute('col-idx'));
+        this.el.querySelectorAll('[col-idx]').forEach((el) => el.removeAttribute('col-idx'));
         return result;
     }
 
