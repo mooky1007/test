@@ -1,5 +1,5 @@
 class LabelResizer {
-    constructor({options}) {
+    constructor(options) {
         this.el = options.wrapperEl;
         this.rowClassName = options.rowClassName || '.search_wrap_row';
         this.colClassName = options.colClassName || '.search_wrap_col';
@@ -15,7 +15,7 @@ class LabelResizer {
         const rows = [...this.el.querySelectorAll(this.rowClassName)];
 
         const result = rows.reduce((acc, row, rowIdx, rowOrigin) => {
-            const cols = [...row.querySelectorAll(this.colClassName)];
+            const cols = [...row.querySelectorAll(`${this.colClassName}`)];
 
             cols.forEach((col, idx) => {
                 const colspan = col.className.match(/col-(\d+)/)[1];
