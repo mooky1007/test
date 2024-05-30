@@ -70,3 +70,15 @@
     flex: 0 0 100%;
     max-width: 100%;
 }
+
+.pr-10 {
+    padding-right: 10px !important; 
+}
+
+.pl-10 {
+    padding-left: 10px !important; 
+}
+
+.mr-10 {
+    margin-right: 10px !important; 
+}
