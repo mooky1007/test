@@ -7,7 +7,7 @@ class LabelResizer {
         this.contentClassName = options.contentClassName || '.content_cell';
         this.timer = null;
 
-        this.observe();
+        this.render();
     }
 
     collectData() {
@@ -30,18 +30,6 @@ class LabelResizer {
 
         document.querySelectorAll('[col-idx]').forEach((el) => el.removeAttribute('col-idx'));
         return result;
-    }
-
-    observe() {
-        // 동적으로 라벨내용이 변경되는 일이 없다면 해당 함수제거
-        const observer = new MutationObserver(() => this.render());
-        observer.observe(this.el, {
-            childList: true,
-            subtree: true,
-            characterDataOldValue: true,
-        });
-
-        this.render();
     }
 
     render() {

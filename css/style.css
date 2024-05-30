@@ -166,6 +166,9 @@ ul {
 }
 
 #changeLang {
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
     border: none;
     position: fixed;
     top: 30px;
@@ -175,5 +178,6 @@ ul {
     border-radius: 4px;
     padding: 0 15px;
     height: 48px;
+    line-height: 48px;
     cursor: pointer;
 }
