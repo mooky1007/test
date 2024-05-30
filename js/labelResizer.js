@@ -5,7 +5,6 @@ class LabelResizer {
         this.colClassName = options.colClassName || '.search_wrap_col';
         this.labelClassName = options.labelClassName || '.label_cell';
         this.contentClassName = options.contentClassName || '.content_cell';
-        this.timer = null;
 
         this.render();
     }
@@ -13,34 +12,36 @@ class LabelResizer {
     collectData() {
         const rows = [...this.el.querySelectorAll(this.rowClassName)];
 
-        const result = rows.reduce((acc, row, rowIdx, rowOrigin) => {
+        const result = rows.reduce((acc, row) => {
             const cols = [...row.querySelectorAll(`${this.colClassName}`)];
 
             cols.forEach((col, idx) => {
+                const colIdx = idx === 0 
+                ? 0 
+                : +cols[idx - 1].getAttribute('col-idx') + (+cols[idx - 1].className.match(/col-(\d+)/)[1] || 1);
                 const colspan = col.className.match(/col-(\d+)/)[1];
-                const labelEl = col.querySelector(this.labelClassName);
-                const colIdx = idx === 0 ? 0 : +cols[idx - 1].getAttribute('col-idx') + (+cols[idx - 1].className.match(/col-(\d+)/)[1] || 1);
+                const el = col.querySelector(this.labelClassName);
                 col.setAttribute('col-idx', colIdx);
 
                 if (!acc[colIdx]) acc[colIdx] = [];
-                acc[colIdx].push({ labelEl, colspan });
+                acc[colIdx].push({ el, colspan });
             });
             return acc;
         }, {});
 
-        document.querySelectorAll('[col-idx]').forEach((el) => el.removeAttribute('col-idx'));
+        rows.querySelectorAll('[col-idx]').forEach((el) => el.removeAttribute('col-idx'));
         return result;
     }
 
     render() {
-        Object.values(this.collectData()).forEach((labels) => {
-            labels.forEach((labelObj) => (labelObj.labelEl.style.width = 'auto'));
-            const maxWidth = Math.max(...labels.map((labelObj) => labelObj.labelEl.offsetWidth + 5));
-            const minWidth = Math.min(...labels.map((labelObj) => labelObj.labelEl.closest(this.colClassName).offsetWidth / 2));
+        Object.values(this.collectData()).forEach((data) => {
+            data.forEach((obj) => (obj.el.style.width = 'auto'));
+            const maxWidth = Math.max(...data.map((obj) => obj.el.offsetWidth + 5));
+            const minWidth = Math.min(...data.map((obj) => obj.el.closest(this.colClassName).offsetWidth / 2));
 
-            labels.forEach((labelObj) => {
-                labelObj.labelEl.style.width = `${maxWidth}px`;
-                labelObj.labelEl.style.maxWidth = `${minWidth}px`;
+            data.forEach((obj) => {
+                obj.el.style.width = `${maxWidth}px`;
+                obj.el.style.maxWidth = `${minWidth}px`;
             });
         });
     }
