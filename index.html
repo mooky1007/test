@@ -32,6 +32,7 @@
         <li>845 ~ 1000px 내에서 라벨영역을 제외하고 컴포넌트는 반응형 대응</li>
     </ul>
 
+<div>
 <h2>검색조건 1개 / 3col / 라벨 + 컴포넌트 영역의 너비가 콘텐츠 영역의 최소 너비(845px)보다 작을 경우</h2>
 <div class="search_wrap">
     <div class="search_wrap_content">
@@ -51,7 +52,8 @@
         </div>
     </div>
 </div>
-
+</div>
+<div>
 <h2>검색조건 1개 / 4col / 라벨 + 컴포넌트 영역의 너비가 콘텐츠 영역의 최소 너비(845px)보다 작을 경우</h2>
 <div class="search_wrap">
     <div class="search_wrap_content">
@@ -71,7 +73,8 @@
         </div>
     </div>
 </div>
-
+<div>
+</div>
 <h2>검색조건 1개 / 6col / 라벨 + 컴포넌트 영역의 너비가 콘텐츠 영역의 최소 너비(845px)보다 작을 경우</h2>
 <div class="search_wrap">
     <div class="search_wrap_content">
@@ -91,7 +94,8 @@
         </div>
     </div>
 </div>
-
+<div>
+</div>
 <h2>검색조건 1개 / 8col / 라벨 + 컴포넌트 영역의 너비가 콘텐츠 영역의 최소 너비(845px)보다 작을 경우</h2>
 <div class="search_wrap">
     <div class="search_wrap_content">
@@ -111,7 +115,8 @@
         </div>
     </div>
 </div>
-
+<div>
+</div>
 <h2>검색조건 2개 / 3col + 3col / 라벨 + 컴포넌트 영역의 너비가 콘텐츠 영역의 최소 너비(845px)보다 작을 경우</h2>
 <div class="search_wrap">
     <div class="search_wrap_content">
@@ -140,7 +145,8 @@
         </div>
     </div>
 </div>
-
+<div>
+</div>
 <h2>검색조건 2개 / 4col + 4col / 라벨 + 컴포넌트 영역의 너비가 콘텐츠 영역의 최소 너비(845px)보다 작을 경우</h2>
 <div class="search_wrap">
     <div class="search_wrap_content">
@@ -169,7 +175,8 @@
         </div>
     </div>
 </div>
-
+<div>
+</div>
 <h2>검색조건 2개 / 6col + 3col / 라벨 + 컴포넌트 영역의 너비가 콘텐츠 영역의 최소 너비(845px)보다 작을 경우</h2>
 <div class="search_wrap">
     <div class="search_wrap_content">
@@ -198,7 +205,8 @@
         </div>
     </div>
 </div>
-
+<div>
+</div>
 <h2>검색조건 3개 / 4col *3 / 라벨 + 컴포넌트 영역의 너비가 콘텐츠 영역의 최소 너비(845px)보다 클 경우</h2>
 <div class="search_wrap">
     <div class="search_wrap_content">
@@ -236,7 +244,7 @@
     </div>
     <!-- [D] 콘텐츠의 합이 col-12인 경우 search_wrap하위로 search_wrap_button 위치 -->
 </div>
-
+<div>
 <h2>검색조건 여러개인 경우 / 라벨 + 컴포넌트 영역의 너비가 콘텐츠 영역의 최소 너비(845px)보다 클 경우</h2>
 <div class="search_wrap">
     <div class="search_wrap_content">
@@ -255,11 +263,11 @@
                     <label>라벨링</label>
                 </div>
                 <div class="content_cell">
-                    <div class="input_group">
+                    <div class="input_group col-6">
                         <input type="radio" id="radio_1" name="radio_group_1">
                         <label for="radio_1">Radio</label>
                     </div>
-                    <div class="input_group">
+                    <div class="input_group col-6">
                         <input type="radio" id="radio_2" name="radio_group_1">
                         <label for="radio_2">Radio</label>
                     </div>
@@ -310,7 +318,7 @@
                 </div>
                 <div class="content_cell">
                     <input type="text">
-                    <div class="input_group">
+                    <div class="input_group pl-10">
                         <input type="checkbox" id="checkbox_1">
                         <label for="checkbox_1">Checkbox</label>
                     </div>
@@ -332,7 +340,7 @@
                     <label>라벨링</label>
                 </div>
                 <div class="content_cell">
-                    <input type="text">
+                    <input type="text" class="mr-10">
                     <input type="text">
                 </div>
             </div>
@@ -352,7 +360,7 @@
     </div>
     <!-- [D] 콘텐츠의 합이 col-12인 경우 search_wrap하위로 search_wrap_button 위치 -->
 </div>
-
+<div>
 <h2>검색조건 여러개인 경우 / 라벨 + 컴포넌트 영역의 너비가 콘텐츠 영역의 최소 너비(845px)보다 클 경우</h2>
 <p>content_cell 내에 최소 너비가 존재하는 여러개의 컴포넌트가 들어갈 경우 넘치면 잘리는 현상 (하단 3행 2열 Radio 영역)</p>
 <div class="search_wrap">
@@ -372,8 +380,12 @@
                     <label>라벨링</label>
                 </div>
                 <div class="content_cell">
-                    <input type="text">
-                    <input type="text">
+                    <div class="input-group col-2">
+                        <input type="text">
+                    </div>
+                    <div class="input-group col-10">
+                        <input type="text">
+                    </div>
                 </div>
             </div>
         </div>
@@ -383,7 +395,9 @@
                     <label>라벨링</label>
                 </div>
                 <div class="content_cell">
-                    <input type="text">~<input type="text">
+                    <input type="text">
+                    ~
+                    <input type="text">
                 </div>
             </div>
 
@@ -411,11 +425,11 @@
                     <label>라벨링</label>
                 </div>
                 <div class="content_cell">
-                    <div class="input_group">
+                    <div class="input_group col-6">
                         <input type="radio" id="radio_3" name="radio_group_2">
                         <label for="radio_3">Radio</label>
                     </div>
-                    <div class="input_group">
+                    <div class="input_group col-6">
                         <input type="radio" id="radio_4" name="radio_group_2">
                         <label for="radio_4">Radio</label>
                     </div>
@@ -465,8 +479,12 @@
                     <label>라벨링</label>
                 </div>
                 <div class="content_cell">
-                    <input type="text">
-                    <input type="text">
+                    <div class="input-group col-6">
+                        <input type="text">
+                    </div>
+                    <div class="input-group col-6">
+                        <input type="text">
+                    </div>
                 </div>
             </div>
 
@@ -485,9 +503,15 @@
                     <label>라벨링</label>
                 </div>
                 <div class="content_cell">
-                    <input type="text">
-                    <input type="text">
-                    <input type="text">
+                    <div class="input-group col-6">
+                        <input type="text">
+                    </div>
+                    <div class="input-group col-3">
+                        <input type="text">
+                    </div>
+                    <div class="input-group col-3">
+                        <input type="text">
+                    </div>
                 </div>
             </div>
 
@@ -581,6 +605,79 @@
     <!-- [D] 콘텐츠의 합이 col-12인 경우 search_wrap하위로 search_wrap_button 위치 -->
 </div>
 
+<div>
+<h2>컴포넌트 영역 내 여러 컴포넌트 사용 시 col 분할 반응형 케이스</h2>
+<p>기존에 적용되어 있던 gap 속성이 제거되어 col 분할 미사용시 컴포넌트 내에서 pr-10 or mr-10등의 클래스 활용하여 간격 부여</p>
+<div class="search_wrap">
+    <div class="search_wrap_content">
+        <div class="search_wrap_row">
+            <div class="search_wrap_col col-6">
+                <div class="label_cell">
+                    <label>라벨링</label>
+                </div>
+                <div class="content_cell">
+                    <div class="col-3">
+                        <input type="text">
+                    </div>
+                    <div class="col-3">
+                        <input type="text">
+                    </div>
+                    <div class="col-6">
+                        <input type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="search_wrap_col col-3">
+                <div class="label_cell">
+                    <label>라벨링</label>
+                </div>
+                <div class="content_cell">
+                    <input type="text">
+                </div>
+            </div>
+            <div class="search_wrap_col col-3">
+                <div class="label_cell">
+                    <label>라벨링</label>
+                </div>
+                <div class="content_cell">
+                    <input type="text">
+                </div>
+            </div>
+        </div>
+        <div class="search_wrap_row">
+            <div class="search_wrap_col col-6">
+                <div class="label_cell">
+                    <label>라벨링</label>
+                </div>
+                <div class="content_cell">
+                    <input type="text" class="mr-10">
+                    <input type="text" class="mr-10">
+                    <input type="text">
+                </div>
+            </div>
+            <div class="search_wrap_col col-3">
+                <div class="label_cell">
+                    <label>라벨링</label>
+                </div>
+                <div class="content_cell">
+                    <input type="text">
+                </div>
+            </div>
+            <div class="search_wrap_col col-3">
+                <div class="label_cell">
+                    <label>라벨링</label>
+                </div>
+                <div class="content_cell">
+                    <input type="text">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="search_wrap_button">
+        <button type="button">검색</button>
+    </div>
+</div>
+
     <button type="button" id="changeLang">라벨 한/영 전환</button>
 
     <script src="./js/codeviewer.js"></script>
@@ -591,9 +688,7 @@
         const searchWraps = document.querySelectorAll('.search_wrap')
             .forEach(searchWrap => new LabelResizer({
                 wrapperEl: searchWrap,
-                rowClassName: '.search_wrap_row',
-                labelClassName: '.label_cell',
-                contentClassName: '.content_cell',
+                // 추후 ndks 기존 구조에 적용 시 하단 options 참조
             }));
 
         // * * * * forNdks
