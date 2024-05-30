@@ -13,7 +13,7 @@ class LabelResizer {
         const rows = [...this.el.querySelectorAll(this.rowClassName)];
 
         const result = rows.reduce((acc, row) => {
-            const cols = [...row.querySelectorAll(`${this.colClassName}`)];
+            const cols = [...row.querySelectorAll(`&> ${this.colClassName}`)];
 
             cols.forEach((col, idx) => {
                 const colIdx = idx === 0 
@@ -36,6 +36,7 @@ class LabelResizer {
     render() {
         Object.values(this.collectData()).forEach((data) => {
             data.forEach((obj) => (obj.el.style.width = 'auto'));
+
             const maxWidth = Math.max(...data.map((obj) => obj.el.offsetWidth + 5));
             const minWidth = Math.min(...data.map((obj) => obj.el.closest(this.colClassName).offsetWidth / 2));
 
