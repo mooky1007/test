@@ -1,6 +1,10 @@
 class LabelResizer {
-    constructor(el) {
-        this.el = el;
+    constructor({options}) {
+        this.el = options.wrapperEl;
+        this.rowClassName = options.rowClassName || '.search_wrap_row';
+        this.colClassName = options.colClassName || '.search_wrap_col';
+        this.labelClassName = options.labelClassName || '.label_cell';
+        this.contentClassName = options.contentClassName || '.content_cell';
         this.timer = null;
 
         this.observe();
@@ -8,14 +12,15 @@ class LabelResizer {
     }
 
     collectData() {
-        const rows = [...this.el.querySelectorAll('.search_wrap_row')];
+        const rows = [...this.el.querySelectorAll(this.rowClassName)];
 
         const result = rows.reduce((acc, row, rowIdx, rowOrigin) => {
-            const cols = [...row.querySelectorAll('.search_wrap_col')];
+            const cols = [...row.querySelectorAll(this.colClassName)];
 
             cols.forEach((col, idx) => {
                 const colspan = col.className.match(/col-(\d+)/)[1];
-                const labelEl = col.querySelector('.label_cell');
+                //col-auto 인경우 대응해야 하는지 확인 필요
+                const labelEl = col.querySelector(this.labelClassName);
                 const colIdx = idx === 0 ? 0 : +cols[idx - 1].getAttribute('col-idx') + (+cols[idx - 1].className.match(/col-(\d+)/)[1] || 1);
                 col.setAttribute('col-idx', colIdx);
 
@@ -53,7 +58,7 @@ class LabelResizer {
         Object.values(this.collectData()).forEach((labels) => {
             labels.forEach((labelObj) => (labelObj.labelEl.style.width = 'auto'));
             const maxWidth = Math.max(...labels.map((labelObj) => labelObj.labelEl.offsetWidth + 5));
-            const minWidth = Math.min(...labels.map((labelObj) => labelObj.labelEl.closest('.search_wrap_col').offsetWidth / 2));
+            const minWidth = Math.min(...labels.map((labelObj) => labelObj.labelEl.closest(this.colClassName).offsetWidth / 2));
 
             labels.forEach((labelObj) => {
                 labelObj.labelEl.style.width = `${maxWidth}px`;

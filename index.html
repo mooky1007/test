@@ -589,7 +589,22 @@
         let lang = 'kor';
 
         const searchWraps = document.querySelectorAll('.search_wrap')
-            .forEach(layout => new LabelResizer(layout));
+            .forEach(searchWrap => new LabelResizer({
+                wrapperEl: searchWrap,
+                rowClassName: '.search_wrap_row',
+                labelClassName: '.label_cell',
+                contentClassName: '.content_cell',
+            }));
+
+        // * * * * forNdks
+        // document.querySelectorAll('.search_wrap')
+        //     .forEach(searchWrap => 
+        //         new LabelResizer({
+        //             wrapperEl: search-wrap,
+        //             rowClassName: '.row',
+        //             labelClassName: '.divede-left',
+        //             contentClassName: '.divede-right',
+        // })
 
         changeLang.addEventListener('click', () => {
             document.querySelectorAll('.label_cell label').forEach(label => {
