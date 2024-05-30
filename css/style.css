@@ -14,12 +14,20 @@ h1 {
 
 h2 {
     position: relative;
-    top: 20px;
     font-size: 16px;
 }
 
-html {
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 50px;
+    margin: 0 auto;
+}
+
+body > div {
     width: 100%;
+    min-width: fit-content;
 }
 
 ul {
@@ -30,23 +38,15 @@ ul {
     padding-left: 20px;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    width: 100%;
-    padding: 50px;
-    margin: 0 auto;
-}
-
 .search_wrap {
     display: flex;
-    width: 100%;
     border-radius: 10px;
     border: 1px solid #ddd;
     background: #f9fafc;
     padding: 20px 10px;
     align-items: flex-end;
+    min-width: fit-content;
+    margin-top: 15px;
 }
 
 .search_wrap_content {
@@ -115,7 +115,14 @@ body {
     display: flex;
     flex: 1;
     align-items: center;
-    gap: 10px;
+}
+
+.search_wrap_col .content_cell [class*="col-"] {
+    padding-left: 10px;
+}
+
+.search_wrap_col .content_cell [class*="col-"]:first-of-type {
+    padding-left: 0;
 }
 
 .search_wrap_col .content_cell input[type='text'] {
