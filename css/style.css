@@ -28,6 +28,12 @@ body {
 body > div {
     width: 100%;
     min-width: fit-content;
+    position: relative;
+}
+
+body > div p {
+    margin-top: 10px;
+    color: #aaa;
 }
 
 ul {
@@ -170,4 +176,18 @@ ul {
     padding: 0 15px;
     height: 48px;
     cursor: pointer;
+}
+
+#copy {
+    border: none;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    background: #118dff;
+    color: #fff;
+    border-radius: 4px;
+    padding: 0 15px;
+    height: 32px;
+    cursor: pointer;
+    z-index: 9999;
 }
