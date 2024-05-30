@@ -8,7 +8,6 @@ class LabelResizer {
         this.timer = null;
 
         this.observe();
-        window.addEventListener('resize', this.debounce(() => this.render(), 100));
     }
 
     collectData() {
@@ -19,7 +18,6 @@ class LabelResizer {
 
             cols.forEach((col, idx) => {
                 const colspan = col.className.match(/col-(\d+)/)[1];
-                //col-auto 인경우 대응해야 하는지 확인 필요
                 const labelEl = col.querySelector(this.labelClassName);
                 const colIdx = idx === 0 ? 0 : +cols[idx - 1].getAttribute('col-idx') + (+cols[idx - 1].className.match(/col-(\d+)/)[1] || 1);
                 col.setAttribute('col-idx', colIdx);
@@ -44,14 +42,6 @@ class LabelResizer {
         });
 
         this.render();
-    }
-
-    debounce(fn, delay) {
-        let timer = null;
-        return (...args) => {
-            if (timer) clearTimeout(timer);
-            timer = setTimeout(() => fn(...args), delay);
-        };
     }
 
     render() {
