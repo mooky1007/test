@@ -67,15 +67,14 @@
 
 pre {
     width: 100%;
-    min-width: 845px;
     background: #282b2e !important;
     border-radius: 10px;
     position: relative;
-    top: -20px;
-    margin-bottom: 30px;
     padding: 5px;
     height: 100%;
     overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 60px;
 }
 
 pre code.hljs {
