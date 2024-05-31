@@ -4,15 +4,14 @@ class LabelResizer {
         this.rowClassName = options.rowClassName || '.search_wrap_row';
         this.colClassName = options.colClassName || '.search_wrap_col';
         this.labelClassName = options.labelClassName || '.label_cell';
-        this.contentClassName = options.contentClassName || '.content_cell';
 
         this.render();
     }
 
     collectData() {
-        const rows = [...this.el.querySelectorAll(this.rowClassName)];
+        const rows = [...this.el.querySelectorAll(`&> ${this.rowClassName}`)];
 
-        const result = rows.reduce((acc, row) => {
+        const result = rows.reduce((acc, row, rowIdx) => {
             const cols = [...row.querySelectorAll(`&> ${this.colClassName}`)];
 
             cols.forEach((col, idx) => {
@@ -35,12 +34,18 @@ class LabelResizer {
 
     render() {
         Object.values(this.collectData()).forEach((data) => {
-            data.forEach((obj) => (obj.el.style.width = 'auto'));
+            const maxWidth = Math.max(...data.map((obj) => {
+                if(!obj.el) return;
+                return obj.el.offsetWidth + 5})
+            );
 
-            const maxWidth = Math.max(...data.map((obj) => obj.el.offsetWidth + 5));
-            const minWidth = Math.min(...data.map((obj) => obj.el.closest(this.colClassName).offsetWidth / 2));
+            const minWidth = Math.min(...data.map((obj) => {
+                if(!obj.el) return;
+                return obj.el.closest(this.colClassName).offsetWidth / 2})
+            );
 
             data.forEach((obj) => {
+                if(!obj.el) return;
                 obj.el.style.width = `${maxWidth}px`;
                 obj.el.style.maxWidth = `${minWidth}px`;
             });
